@@ -2,6 +2,13 @@
 
 An application to generate a tip of the day 
 
+# To-Do:
+- Configure setup mongodb
+  - Store response from ollama and save in mongodb
+  - Render data from mongodb to ui
+- Setup cron to schedule new tip
+
+
 # Requirements:
    - Docker
 

@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.header h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+}
+
+.feature {
+    flex: 1;
+    text-align: center;
+}
+
+.feature h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.feature p {
+    color: #666;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
