@@ -1,0 +1,29 @@
+services:
+  ollama:
+    volumes:
+      - ./ollama/ollama:/root/.ollama
+    container_name: ollama
+    pull_policy: always
+    tty: true
+    restart: unless-stopped
+    image: ollama/ollama:latest
+    ports:
+      - 11434:11434
+    networks:
+      - ollama-docker
+# Uncomment the below if you have a GPU
+###################################
+#    deploy:
+#      resources:
+#        reservations:
+#          devices:
+#            - driver: nvidia
+#              count: 1
+#              capabilities: [ gpu ]
+###################################
+networks:
+  ollama-docker:
+    external: false
+
+volumes:
+  ollama: {}

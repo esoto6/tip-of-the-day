@@ -1,0 +1,21 @@
+###
+# Get API Version
+GET localhost:11434/api/version
+###
+
+###
+# Get Model
+POST localhost:11434/api/show
+Content-Type: application/json
+
+{"model": "codegemma"}
+###
+
+
+### Generate Request w/o Streaming
+POST localhost:11434/api/generate
+Content-Type: application/json
+
+{"model": "codegemma", "prompt": "Give me a tip on a java topic", "stream": false}
+
+###

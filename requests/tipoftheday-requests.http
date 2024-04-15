@@ -1,0 +1,12 @@
+### Generate Java Tip
+GET localhost:8080/java-tip
+###
+
+
+### Generate Python Tip
+GET localhost:8080/python-tip
+###
+
+
+### Generate Software Design Tip
+GET localhost:8080/design-tip
