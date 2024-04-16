@@ -24,5 +24,6 @@ An application to generate a tip of the day
 ```sh 
 ollama pull codegemma
 ```
+
    - This can take some time monitor the container logs until complete
 

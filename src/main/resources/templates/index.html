@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,21 +13,16 @@
     <p>Application for developer tips leveraging Ollama to generate tips.</p>
 </header>
 <section class="features">
-    <div class="feature">
-        <h2>Java Tip</h2>
-        <p th:text="${javaTip}">Loading...</p>
-    </div>
-    <div class="feature">
-        <h2>Python Tip</h2>
-        <p th:text="${pythonTip}">Loading...</p>
-    </div>
-    <div class="feature">
-        <h2>Design Tip</h2>
-        <p th:text="${designTip}">Loading...</p>
+    <div class="feature" th:each="item: ${ragTips}" >
+
+        <h2 th:text="${item.tipType()}"></h2>
+        <p th:text="${item.question()}"></p>
+        <p th:text="${item.answer()}"></p>
+
     </div>
 </section>
 <footer class="footer">
-    <p>Contact us at: admin@tipoftheday.com</p>
+    <p>edwinsoto@tipoftheday.com</p>
 </footer>
 </body>
 </html>

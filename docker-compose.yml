@@ -1,8 +1,8 @@
 services:
   ollama:
-    volumes:
-      - ./ollama/ollama:/root/.ollama
     container_name: ollama
+    volumes:
+      - ollama-data:/root/.ollama
     pull_policy: always
     tty: true
     restart: unless-stopped
@@ -11,8 +11,8 @@ services:
       - 11434:11434
     networks:
       - tip-of-the-day
-# Uncomment the below if you have a GPU
-###################################
+## Uncomment the below if you have a GPU
+####################################
     deploy:
       resources:
         reservations:
@@ -20,14 +20,14 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [ gpu ]
-###################################
+####################################
   mongodb:
-    image: mongo:latest
     container_name: mongodb
+    image: mongo:latest
     ports:
       - 27017:27017
     volumes:
-      - ./mongodb/mongo:/root/.mongoDB
+      - mongo-data:/data/db
     environment:
       - MONGO_INITDB_ROOT_USERNAME=rootuser
       - MONGO_INITDB_ROOT_PASSWORD=rootpass
@@ -39,5 +39,5 @@ networks:
     external: false
 
 volumes:
-  ollama: {}
-  mongo: {}
+  ollama-data: {}
+  mongo-data: {}
