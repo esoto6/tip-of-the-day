@@ -3,8 +3,10 @@
 An application to generate a tip of the day 
 
 # To-Do:
+- Write Tests!!!!!
 - Configure setup mongodb
   - Store response from ollama and save in mongodb
+    - Mongo not creating the collection....
   - Render data from mongodb to ui
 - Setup cron to schedule new tip
 

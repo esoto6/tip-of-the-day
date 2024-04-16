@@ -33,3 +33,4 @@ build/
 .vscode/
 
 /ollama
+/mongodb

@@ -1,12 +1,13 @@
+
 ### Generate Java Tip
-GET localhost:8080/java-tip
+GET localhost:8080/ollama/java
 ###
 
 
 ### Generate Python Tip
-GET localhost:8080/python-tip
+GET localhost:8080/ollama/python
 ###
 
 
 ### Generate Software Design Tip
-GET localhost:8080/design-tip
+GET localhost:8080/ollama/design

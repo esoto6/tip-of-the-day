@@ -10,7 +10,7 @@ services:
     ports:
       - 11434:11434
     networks:
-      - ollama-docker
+      - tip-of-the-day
 # Uncomment the below if you have a GPU
 ###################################
     deploy:
@@ -23,11 +23,19 @@ services:
 ###################################
   mongodb:
     image: mongo:latest
+    container_name: mongodb
     ports:
-      - '27017:27017'
+      - 27017:27017
+    volumes:
+      - ./mongodb/mongo:/root/.mongoDB
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rootuser
+      - MONGO_INITDB_ROOT_PASSWORD=rootpass
+    networks:
+      - tip-of-the-day
 
 networks:
-  ollama-docker:
+  tip-of-the-day:
     external: false
 
 volumes:
