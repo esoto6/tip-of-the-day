@@ -29,10 +29,13 @@ body {
 .feature h2 {
     font-size: 24px;
     color: #333;
+    text-align: center;
 }
 
 .feature p {
     color: #666;
+    text-align: left;
+    padding: 20px 0;
 }
 
 .footer {

@@ -1,3 +1,7 @@
 ### Save Tip to Mongo
 POST localhost:8080/save
-{"question":"why is the sky blue?","answer":"it just is","date":"04/14/2024"
+{"question":"why is the sky blue?","answer":"it just is","date":"04/14/2024"}
+
+### Get Tip
+GET localhost:8080/ollama/getTip
+###

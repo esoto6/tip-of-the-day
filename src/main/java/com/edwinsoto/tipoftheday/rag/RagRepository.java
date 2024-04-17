@@ -15,6 +15,7 @@ public interface RagRepository extends MongoRepository<RagTip, String> {
 
     List<RagTip> getRagTipsByDate(String date);
 
+
 //    List<OllamaTip> findOllamaTipByDate(String date);
 
 //    RagTip generateTip();

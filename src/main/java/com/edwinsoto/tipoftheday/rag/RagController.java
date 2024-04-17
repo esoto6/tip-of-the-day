@@ -28,19 +28,19 @@ public class RagController {
     @GetMapping("/java")
     public RagTip generateJavaTip(@RequestParam(value = "message", defaultValue = "Give me a developer tip on the topic of Java posed as a question then answer") String message) {
         RagTip tip = ragRepository.getRagTipByDateAndTipType(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")), "java");
-        return Objects.requireNonNullElseGet(tip, () -> generateTip("java", message));
+        return Objects.requireNonNullElseGet(tip, () -> generateTip("Java", message));
     }
 
     @GetMapping("/python")
     public RagTip generatePythonTip(@RequestParam(value = "message", defaultValue = "Give me a developer tip on the topic of Python3 posed as a question then answer") String message) {
         RagTip tip = ragRepository.getRagTipByDateAndTipType(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")), "python");
-        return Objects.requireNonNullElseGet(tip, () -> generateTip("python", message));
+        return Objects.requireNonNullElseGet(tip, () -> generateTip("Python", message));
     }
 
     @GetMapping("/design")
     public RagTip generateDesignTip(@RequestParam(value = "message", defaultValue = "Give me a developer tip on software design posed as a question then answer") String message) {
         RagTip tip = ragRepository.getRagTipByDateAndTipType(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")), "design");
-        return Objects.requireNonNullElseGet(tip, () -> generateTip("design", message));
+        return Objects.requireNonNullElseGet(tip, () -> generateTip("Design", message));
     }
 
     @GetMapping("/getTip")
@@ -50,6 +50,7 @@ public class RagController {
     }
     private RagTip generateTip(String tipType, String message) {
         String response = chatClient.call(message);
+        response = replaceMDTagsWithHtmlTags(response);
         Map<String, String> tipResponse = parseResponse(response);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -75,11 +76,33 @@ public class RagController {
                 String question = questionPart.substring(0, answerIndex).trim();
                 String answer = questionPart.substring(answerIndex + "Answer:".length()).trim();
 
+                question = cleanQuestion(question);
+                answer = cleanAnswer(answer);
+
                 map.put("question", question);
                 map.put("answer", answer);
+                System.out.println(map.get("answer"));
             }
         }
         return map;
+    }
+
+    public String replaceMDTagsWithHtmlTags(String response) {
+
+        return response.replaceAll("\\n","<br>")
+                .replaceFirst("\\*\\*", "<strong>")
+                .replaceAll("\\*\\*", "</strong>")
+                .replaceFirst("##", "<h2>")
+                .replaceAll("##", "</h2>")
+                .replaceAll("\\*", "-");
+    }
+
+    public String cleanQuestion(String question){
+        return question.replaceAll("<br>", "");
+    }
+
+    public String cleanAnswer(String answer){
+        return answer.replaceFirst("<br>", "");
     }
 
 }

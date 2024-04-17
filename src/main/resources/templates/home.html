@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dev Tips</title>
-    <link rel="stylesheet" href="../static/styles.css">
+    <link th:href="@{./styles.css}" rel="stylesheet" />
 </head>
 <body>
 <header class="header">
@@ -15,9 +15,9 @@
 <section class="features">
     <div class="feature" th:each="item: ${ragTips}" >
 
-        <h2 th:text="${item.tipType()}"></h2>
-        <p th:text="${item.question()}"></p>
-        <p th:text="${item.answer()}"></p>
+        <h2 th:utext="${item.tipType()}"></h2>
+        <p th:utext="${item.question()}"></p>
+        <p th:utext="${item.answer()}"></p>
 
     </div>
 </section>
