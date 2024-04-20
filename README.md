@@ -42,26 +42,28 @@ Once complete you can exit the terminal
 ![terminal.png](images/terminal.png)
 
 # How to Use:
-At this time the API endpoint to store the data in mongo is not automatically triggering. Daily you will need to hit the endpoint. Due to the processing required to generate a response it is best to run each endpoint one at time until the response has generated.
 
-[Java Tip Endpoint](http:\\localhost:8080\ollama\java)
+At this time the API endpoint to store the data in mongo is triggered to run automatically starting at midnight. For
+initial startup of the app you will need to hit the endpoint. Due to the processing required to generate a response it
+is best to run each endpoint one at time until the response has generated.
+Once you have data retrieved and stored in mongo the response can be retrieved and viewed on the home page.
 
-[Python Tip Endpoint](http:\\localhost:8080\ollama\python)
+| Endpoint                                                   | Scheduled |
+|------------------------------------------------------------|-----------|
+| [Home](http://localhost:8080/)                             | N/A       |
+| [Java Tip Endpoint](http:\\localhost:8080\ollama\java)     | 12:01 AM  |
+| [Python Tip Endpoint](http:\\localhost:8080\ollama\python) | 12:05 AM  |
+| [Design Tip Endpoint](http:\\localhost:8080\ollama\design) | 12:10 AM  |
 
-[Design Tip Endpoint](http:\\localhost:8080\ollama\design)
-
-Once you have data retrieved and stored in mongo the response can be retrieved and viewed on the landing page. 
-
-http:\\localhost:8080\
 
 # To-Do:
-- Write Tests!
-- Getting Daily Tips
-  - Setup cron to schedule new tip
-  - If not running:
-    - How can i get this to run reducing overhead?
-- Refine UI
-- Containerize Application
+
+- [ ] Write Tests!
+- [ ] Getting Daily Tips
+    - [x] Setup cron to schedule new tip
+    - [ ] On Startup if no tip of the Day, Get new Tip
+- [ ] Refine Visual UI
+- [ ] Containerize Application
 
 
 

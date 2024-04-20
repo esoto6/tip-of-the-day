@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import java.time.format.DateTimeFormatter;
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -43,11 +44,6 @@ public class RagController {
         return Objects.requireNonNullElseGet(tip, () -> generateTip("Design", message));
     }
 
-    @GetMapping("/getTip")
-    public RagTip getTip() {
-        RagTip tip = ragRepository.getRagTipByDateAndTipType(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")), "java");
-        return tip;
-    }
     private RagTip generateTip(String tipType, String message) {
         String response = chatClient.call(message);
         response = replaceMDTagsWithHtmlTags(response);
@@ -87,7 +83,7 @@ public class RagController {
         return map;
     }
 
-    public String replaceMDTagsWithHtmlTags(String response) {
+    private String replaceMDTagsWithHtmlTags(String response) {
 
         return response.replaceAll("\\n","<br>")
                 .replaceFirst("\\*\\*", "<strong>")
@@ -97,12 +93,13 @@ public class RagController {
                 .replaceAll("\\*", "-");
     }
 
-    public String cleanQuestion(String question){
+    private String cleanQuestion(String question) {
         return question.replaceAll("<br>", "");
     }
 
-    public String cleanAnswer(String answer){
+    private String cleanAnswer(String answer) {
         return answer.replaceFirst("<br>", "");
     }
+
 
 }
