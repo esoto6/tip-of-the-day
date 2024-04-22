@@ -59,6 +59,11 @@ Once you have data retrieved and stored in mongo the response can be retrieved a
 # To-Do:
 
 - [ ] Write Tests!
+    - Unit Tests
+        - [ ] TipServiceTest to be completed
+    - Integration Tests
+        - [ ] Ollama
+        - [ ] Mongo
 - [ ] Getting Daily Tips
     - [x] Setup cron to schedule new tip
     - [ ] On Startup if no tip of the Day, Get new Tip

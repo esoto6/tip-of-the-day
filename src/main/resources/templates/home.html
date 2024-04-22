@@ -13,7 +13,7 @@
     <p>Application for developer tips leveraging Ollama to generate tips.</p>
 </header>
 <section class="features">
-    <div class="feature" th:each="item: ${ragTips}" >
+    <div class="feature" th:each="item: ${tips}">
 
         <h2 th:utext="${item.tipType()}"></h2>
         <p th:utext="${item.question()}"></p>
