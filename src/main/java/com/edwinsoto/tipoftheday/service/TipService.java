@@ -18,8 +18,7 @@ public class TipService {
     private final OllamaChatClient chatClient;
     private final TipRepository repository;
 
-    @Autowired
-    private TipService(OllamaChatClient chatClient, TipRepository repository) {
+    public TipService(OllamaChatClient chatClient, TipRepository repository) {
         this.chatClient = chatClient;
         this.repository = repository;
     }
@@ -77,6 +76,9 @@ public class TipService {
     }
 
     public String replaceMDTagsWithHtmlTags(String response) {
+        if (response == null) {
+            return "";
+        }
 
         return response.replaceAll("\\n", "<br>")
                 .replaceFirst("\\*\\*", "<strong>")

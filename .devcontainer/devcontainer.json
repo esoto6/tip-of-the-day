@@ -1,0 +1,15 @@
+{
+  "name": "Tip-Of-The-Day-DevContainer",
+  "dockerComposeFile": [
+    "docker-compose.yml",
+  ],
+  "service": "devcontainer",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "postCreateCommand": "mvn clean install",
+  "forwardPorts": [
+    8080,
+    27017,
+    11434
+  ]
+}

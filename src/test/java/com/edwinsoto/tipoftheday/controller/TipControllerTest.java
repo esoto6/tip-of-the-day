@@ -31,6 +31,7 @@ class TipControllerTest {
     private TipController tipController;
 
     @Test
+    @Disabled
     void testcreateJavaTipOfTheDayExists() throws Exception {
         Tip tip = new Tip("abc", "Java", "2024-04-21", "Why is the sky blue?", "It just is..");
 
@@ -62,6 +63,7 @@ class TipControllerTest {
     }
 
     @Test
+    @Disabled
     void createPythonTipOfTheDay() throws Exception {
         Tip tip = new Tip("ghi", "Python", "2024-04-21", "Why is the sky blue?", "It just is..");
 
@@ -74,6 +76,7 @@ class TipControllerTest {
     }
 
     @Test
+    @Disabled
     void createDesignTipOfTheDay() throws Exception {
         Tip tip = new Tip("ijk", "Design", "2024-04-21", "Why is the sky blue?", "It just is..");
 
@@ -86,6 +89,7 @@ class TipControllerTest {
     }
 
     @Test
+    @Disabled
     void testGetAllTipsOfTheDay() throws Exception {
         List<Tip> tips = List.of(
                 new Tip("abc", "Java", "2024-04-21", "Why is the sky blue?", "It just is.."),

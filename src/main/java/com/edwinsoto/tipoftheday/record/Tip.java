@@ -9,8 +9,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public record Tip(
         @Id String id,
         @NotBlank String tipType,
-        @Pattern(regexp = "\\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])") String date,
-        String question,
-        String answer
+        @Pattern(regexp = "\\d{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])") String date,
+        @NotBlank String question,
+        @NotBlank String answer
         ) {
 }
